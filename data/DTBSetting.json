@@ -1,0 +1,17 @@
+{
+    "Body": {
+        "Dragon": {
+            "Daily": 1,
+            "Weekly": 1,
+            "Period": 1
+        },
+        "Tiger": {
+            "Daily": 1,
+            "Weekly": 1,
+            "Period": 1
+        },
+        "DragonMinScore": 5000.0
+    },
+    "Messages": [],
+    "Status": "Success"
+}

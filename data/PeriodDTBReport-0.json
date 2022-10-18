@@ -1,0 +1,24 @@
+{
+    "Body": [
+        {
+            "BuCode": "BU003",
+            "GameSN": 26,
+            "GameName": "Fortune New Year",
+            "Rank": 1,
+            "MemberCode": "B****67",
+            "Count": 2,
+            "RefAccount": "2TGss6j+7uLNsaHK31/CPw=="
+        },
+        {
+            "BuCode": "BU003",
+            "GameSN": 15,
+            "GameName": "Naughty Landlord",
+            "Rank": 2,
+            "MemberCode": "B****03",
+            "Count": 1,
+            "RefAccount": "sRQ2ZHq7PFGX1aO5x6IOFQ=="
+        }
+    ],
+    "Messages": [],
+    "Status": "Success"
+}
