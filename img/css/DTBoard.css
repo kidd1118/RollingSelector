@@ -1,0 +1,793 @@
+﻿@charset "utf-8";
+
+/* CSS Document */
+
+
+/*css reset*/
+
+body,
+div,
+ul,
+li,
+th,
+td,
+p,
+br {
+    margin: 0;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none outside none;
+}
+
+
+/*Common 
+  note: 在此設定html, body css時，當使用jQuery內嵌html時，會覆蓋到原本主體css，
+        因此改到html內指定
+  html, body {
+    background: #000;
+    overflow: hidden;
+    height: 100%; 
+}*/
+
+#DTBoard.container {
+    display: block;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #972222;
+    font-family: Tahoma, Geneva, sans-serif, "Noto Sans CJK SC", "Microsoft YaHei", "Source Han Sans CN", "SimHei", "微軟正黑體";
+    padding: 0 10px 0 10px;
+    color: #eee;
+    margin: 0;
+}
+
+    #DTBoard.container div {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+#DTBoard .headers {
+    text-align: left;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    margin: 10px 5px 5px 5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+    #DTBoard .headers .header {
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding-right: 20px;
+    }
+
+    #DTBoard .headers .subHeader {
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -moz-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        white-space: nowrap;
+        color: #FDB741;
+    }
+
+#DTBoard .main {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#DTBoard .content {
+    background-color: #B0A8A8;
+    border: 1px solid #2d2d2d;
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    padding: 3px 0px 2px 8px;
+}
+
+    #DTBoard .content > .row.title {
+        background: #c0e1ff;
+        background: -webkit-linear-gradient(#FFFCFC, #FFC3C3);
+        background: -o-linear-gradient(#FFFCFC, #FFC3C3);
+        background: -moz-linear-gradient(#FFFCFC, #FFC3C3);
+        background: linear-gradient(#FFFCFC, #FFC3C3);
+        color: #600000;
+        font-size: 14px;
+        line-height: 1;
+        font-weight: bold;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        text-align: center;
+        border-bottom: 1px solid #EA8C8C;
+        font-size: 16px;
+        line-height: 1;
+        align-items: center;
+        overflow: hidden;
+        flex-wrap: wrap;
+        margin-right: 25px;
+        padding: 0px 15px 0px 5px;
+    }
+
+        #DTBoard .content > .row.title .cell {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -moz-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            padding: 15px 5px 15px 5px;
+            /*word-break: keep-all;*/
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -moz-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+            #DTBoard .content > .row.title .cell.helf {
+                -webkit-box-flex: 0.7;
+                -webkit-flex: 0.7;
+                -moz-box-flex: 0.7;
+                -ms-flex: 0.7;
+                flex: 0.7;
+                text-align: center;
+            }
+
+            #DTBoard .content > .row.title .cell.double {
+                -webkit-box-flex: 2;
+                -webkit-flex: 2;
+                -moz-box-flex: 2;
+                -ms-flex: 2;
+                flex: 2;
+            }
+
+            #DTBoard .content > .row.title .cell.textRight {
+                text-align: right;
+                -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                justify-content: flex-end;
+            }
+
+#DTBoard .note,
+#DTBoard .subNote {
+    color: #E15959;
+    letter-spacing: 1px;
+    font-size: 10px;
+    text-align: center;
+    padding: 2px;
+    float: left;
+    margin-right: 10px;
+}
+
+/*Tab*/
+#DTBoard .tabSet {
+    margin-top: 2px;
+    width: 100px;
+    font-weight: bold;
+}
+
+    #DTBoard .tabSet .tab1,
+    #DTBoard .tabSet .tab2 {
+        background-color: #B0A8A8;
+        margin-bottom: 5px;
+        color: #070707;
+        /*padding: 5px 10px 5px 10px;*/
+        text-align: center;
+        white-space: nowrap;
+        -moz-transition: width 500ms ease;
+        -webkit-transition: width 500ms ease;
+        -o-transition: width 500ms ease;
+        -ms-transition: width 500ms ease;
+        transition: width 500ms ease;
+    }
+
+    #DTBoard .tabSet .tab1 {
+        font-size: 20px;
+        height: 55px;
+        line-height: 55px;
+        width: 100px;
+        padding-left: 10px;
+    }
+
+        #DTBoard .tabSet .tab1::before {
+            content: "";
+            border-top: 10px solid #932020;
+            border-right: 10px solid #932020;
+            border-bottom: 10px solid #B0A8A8;
+            border-left: 10px solid #B0A8A8;
+            float: right;
+        }
+
+        #DTBoard .tabSet .tab1::after {
+            content: "";
+            border-top: 5px solid #000;
+            border-right: 10px solid #000;
+            border-bottom: 5px solid #B0A8A8;
+            border-left: 10px solid #B0A8A8;
+            position: absolute;
+            left: 0;
+            top: 65px;
+            display: none;
+        }
+
+        #DTBoard .tabSet .tab1.focus {
+            left: -20px;
+            font-size: 22px;
+            background-color: #FFBA42;
+            height: 65px;
+            line-height: 65px;
+            position: relative;
+            width: 120px;
+        }
+
+            #DTBoard .tabSet .tab1.focus::before {
+                border-bottom: 10px solid #FFBA42;
+                border-left: 10px solid #FFBA42;
+            }
+
+            #DTBoard .tabSet .tab1.focus::after {
+                display: block;
+            }
+
+    #DTBoard .tabSet .tab2 {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: 14px;
+        height: 25px;
+        line-height: 25px;
+        width: 60px;
+    }
+
+        #DTBoard .tabSet .tab2.focus {
+            font-size: 18px;
+            background-color: #F2F2F2;
+            height: 35px;
+            line-height: 35px;
+            width: 100%;
+        }
+
+/*Data Set*/
+#DTBoard .dataSet {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin-right: 10px;
+}
+
+
+    /*Sub Data Set*/
+    #DTBoard .dataSet .sub {
+        background-color: #fff;
+        margin-right: 15px;
+    }
+
+    #DTBoard .dataSet .grid .grid {
+        border-style: none;
+    }
+
+    #DTBoard .dataSet .sub.padding {
+        padding: 5px 5px 5px 5px;
+        border-top-style: none;
+    }
+
+    #DTBoard .dataSet .sub > .title {
+        color: #b0a8a8;
+        font-size: 26px;
+        line-height: 3;
+    }
+
+
+/*Grid*/
+#DTBoard .grid {
+}
+
+    #DTBoard .grid .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        text-align: center;
+        border-bottom: 1px solid #EA8C8C;
+        color: #6c6c6c;
+        font-size: 16px;
+        line-height: 1;
+        align-items: center;
+        overflow: hidden;
+        flex-wrap: wrap;
+        padding: 0px 10px;
+        margin: 0;
+    }
+
+        #DTBoard .grid .row:last-child {
+            border-bottom-style: none;
+        }
+
+        #DTBoard .grid .row.even {
+            background-color: #fff;
+        }
+
+        #DTBoard .grid .row.odd {
+            background-color: #ddd;
+        }
+
+        #DTBoard .grid .row .cell {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -moz-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            padding: 15px 5px 15px 5px;
+            /*word-break: keep-all;*/
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -moz-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            z-index: 2;
+            margin-right: 10px;
+        }
+        #DTBoard .grid .row .cell > p {
+            line-height: 20px;
+        }
+            #DTBoard .grid .row .cell.helf {
+                -webkit-box-flex: 0.7;
+                -webkit-flex: 0.7;
+                -moz-box-flex: 0.7;
+                -ms-flex: 0.7;
+                flex: 0.7;
+                text-align: center;
+            }
+
+            #DTBoard .grid .row .cell.double {
+                -webkit-box-flex: 2;
+                -webkit-flex: 2;
+                -moz-box-flex: 2;
+                -ms-flex: 2;
+                flex: 2;
+            }
+
+            #DTBoard .grid .row .cell.textRight {
+                text-align: right;
+                -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                justify-content: flex-end;
+            }
+
+
+        #DTBoard .grid .row.title {
+            background: #c0e1ff;
+            background: -webkit-linear-gradient(#FFFCFC, #FFC3C3);
+            background: -o-linear-gradient(#FFFCFC, #FFC3C3);
+            background: -moz-linear-gradient(#FFFCFC, #FFC3C3);
+            background: linear-gradient(#FFFCFC, #FFC3C3);
+            color: #600000;
+            font-size: 14px;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        #DTBoard .grid .row .detail {
+            ccolor: #245178;
+            height: 18px;
+            line-height: 18px;
+            width: 0;
+            position: relative;
+            right: 15px;
+            z-index: 1;
+        }
+
+        #DTBoard .grid .row .rowTitle {
+            width: 100%;
+            -webkit-box-flex: none;
+            -webkit-flex: none;
+            -moz-box-flex: none;
+            -ms-flex: none;
+            flex: none;
+            color: #4F89B8;
+            font-size: 14px;
+            line-height: 1;
+            padding-top: 10px;
+            padding-left: 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+/*waiting and mask*/
+#DTBoard .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+    #DTBoard .mask .dialog {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+#floatingBarsG {
+    position: relative;
+    width: 60px;
+    height: 75px;
+    margin: auto;
+}
+
+.blockG {
+    position: absolute;
+    background-color: #eadcdc;
+    width: 10px;
+    height: 23px;
+    border-radius: 8px 8px 0 0;
+    -o-border-radius: 8px 8px 0 0;
+    -ms-border-radius: 8px 8px 0 0;
+    -webkit-border-radius: 8px 8px 0 0;
+    -moz-border-radius: 8px 8px 0 0;
+    transform: scale(0.4);
+    -o-transform: scale(0.4);
+    -ms-transform: scale(0.4);
+    -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    animation-name: fadeG;
+    -o-animation-name: fadeG;
+    -ms-animation-name: fadeG;
+    -webkit-animation-name: fadeG;
+    -moz-animation-name: fadeG;
+    animation-duration: 1.2s;
+    -o-animation-duration: 1.2s;
+    -ms-animation-duration: 1.2s;
+    -webkit-animation-duration: 1.2s;
+    -moz-animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-direction: normal;
+    -o-animation-direction: normal;
+    -ms-animation-direction: normal;
+    -webkit-animation-direction: normal;
+    -moz-animation-direction: normal;
+}
+
+#rotateG_01 {
+    left: 0;
+    top: 27px;
+    animation-delay: 0.45s;
+    -o-animation-delay: 0.45s;
+    -ms-animation-delay: 0.45s;
+    -webkit-animation-delay: 0.45s;
+    -moz-animation-delay: 0.45s;
+    transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+}
+
+#rotateG_02 {
+    left: 8px;
+    top: 10px;
+    animation-delay: 0.6s;
+    -o-animation-delay: 0.6s;
+    -ms-animation-delay: 0.6s;
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+}
+
+#rotateG_03 {
+    left: 25px;
+    top: 3px;
+    animation-delay: 0.75s;
+    -o-animation-delay: 0.75s;
+    -ms-animation-delay: 0.75s;
+    -webkit-animation-delay: 0.75s;
+    -moz-animation-delay: 0.75s;
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+}
+
+#rotateG_04 {
+    right: 8px;
+    top: 10px;
+    animation-delay: 0.9s;
+    -o-animation-delay: 0.9s;
+    -ms-animation-delay: 0.9s;
+    -webkit-animation-delay: 0.9s;
+    -moz-animation-delay: 0.9s;
+    transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+}
+
+#rotateG_05 {
+    right: 0;
+    top: 27px;
+    animation-delay: 1.05s;
+    -o-animation-delay: 1.05s;
+    -ms-animation-delay: 1.05s;
+    -webkit-animation-delay: 1.05s;
+    -moz-animation-delay: 1.05s;
+    transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}
+
+#rotateG_06 {
+    right: 8px;
+    bottom: 7px;
+    animation-delay: 1.2s;
+    -o-animation-delay: 1.2s;
+    -ms-animation-delay: 1.2s;
+    -webkit-animation-delay: 1.2s;
+    -moz-animation-delay: 1.2s;
+    transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+}
+
+#rotateG_07 {
+    bottom: 0;
+    left: 25px;
+    animation-delay: 1.35s;
+    -o-animation-delay: 1.35s;
+    -ms-animation-delay: 1.35s;
+    -webkit-animation-delay: 1.35s;
+    -moz-animation-delay: 1.35s;
+    transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+}
+
+#rotateG_08 {
+    left: 8px;
+    bottom: 7px;
+    animation-delay: 1.5s;
+    -o-animation-delay: 1.5s;
+    -ms-animation-delay: 1.5s;
+    -webkit-animation-delay: 1.5s;
+    -moz-animation-delay: 1.5s;
+    transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+}
+
+
+
+@keyframes fadeG {
+    0% {
+        background-color: rgb(0,0,0);
+    }
+
+    100% {
+        background-color: #eadcdc;
+    }
+}
+
+@-o-keyframes fadeG {
+    0% {
+        background-color: rgb(0,0,0);
+    }
+
+    100% {
+         background-color: #eadcdc;
+    }
+}
+
+@-ms-keyframes fadeG {
+    0% {
+        background-color: rgb(0,0,0);
+    }
+
+    100% {
+        background-color: #eadcdc;
+    }
+}
+
+@-webkit-keyframes fadeG {
+    0% {
+        background-color: rgb(0,0,0);
+    }
+
+    100% {
+        background-color: #eadcdc;
+    }
+}
+
+@-moz-keyframes fadeG {
+    0% {
+        background-color: rgb(0,0,0);
+    }
+
+    100% {
+        background-color: #eadcdc;
+    }
+}
+
+/*buttons*/
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon_next:before {
+    content: "\e903";
+    font-size: 25px;
+    font-weight: bold;
+    color: #6c6c6c;
+}
+
+.p101 {
+    position: absolute;
+    top: 0;
+    height: 101%;
+    width: 1px;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?z1ryhz');
+    src: url('../fonts/icomoon.eot?z1ryhz#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?z1ryhz') format('truetype'), url('../fonts/icomoon.woff?z1ryhz') format('woff'), url('../fonts/icomoon.svg?z1ryhz#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#DTBoard .back{
+    display: block;
+    z-index: 1000;
+    position: fixed;
+    top: 35%;
+    bottom: 25%;
+    left: 0;
+    background: url(../img/common/Btn_Back.png) no-repeat;
+    background-size: contain;
+    width: 6vw;
+    height: 25vw;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*RWD*/
+/* horizion */
+@media screen and (min-width: 501px) {
+}
+/* vertical */
+@media screen and (max-width: 500px) {
+    #DTBoard .tabSet {
+        font-size: 14px;
+        width: 80px;
+    }
+
+        #DTBoard .tabSet .tab1 {
+            font-size: 14px;
+            height: 60px;
+            line-height: 60px;
+            width: 80px;
+        }
+
+            #DTBoard .tabSet .tab1.focus {
+                font-size: 16px;
+                height: 70px;
+                line-height: 70px;
+                width: 100px;
+            }
+
+                #DTBoard .tabSet .tab1.focus::after {
+                    top: 70px;
+                }
+
+        #DTBoard .tabSet .tab2 {
+            font-size: 12px;
+            height: 20px;
+            line-height: 20px;
+            width: 60px;
+        }
+
+            #DTBoard .tabSet .tab2.focus {
+                font-size: 14px;
+                height: 30px;
+                line-height: 30px;
+                width: 80px;
+            }
+}

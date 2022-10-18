@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en" style="background: #000; overflow: hidden; height: 100%;">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Dragon Tiger Report</title>
+    <script type="text/javascript">
+        var listJS = ['js/jquery-1.12.4.min.js'],
+            listCSS = ['css/DTBoardRpt.css'];
+
+        var scripts = document.querySelectorAll ? document.querySelectorAll('head script') : document.getElementsByTagName('script');
+        for (var i in scripts) {
+            var script = scripts[i], i = 0;
+            while (listJS[i]) {
+                if (script.src && script.src.indexOf(listJS[i]) > -1) {
+                    listJS.splice(i, 1);
+                    break;
+                } else {
+                    i++;
+                }
+            }
+            if (script.src && script.src.indexOf('js/DTBoardRpt.js') > -1) {
+                script.parentNode.removeChild(script);
+            }
+        }
+
+        var links = document.querySelectorAll ? document.querySelectorAll('head link') : document.getElementsByTagName('link');
+        for (var i in links) {
+            var link = links[i], i = 0;
+            while (listCSS[i]) {
+                if (link.href && link.href.indexOf(listCSS[i]) > -1) {
+                    listCSS.splice(i, 1);
+                    break;
+                } else {
+                    i++;
+                }
+            }
+        }
+
+        var load = function (loadObj) {
+
+            var infoUrl = window.infoUrl ? window.infoUrl + '/' : './',
+                head = document.getElementsByTagName('head')[0],
+                countJs = 0,
+                script,
+                link;
+
+            for (var i in loadObj.js) {
+                script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = infoUrl + loadObj.js[i];
+
+                script.onload = script.onreadystatechange = callback;
+
+                head.appendChild(script);
+            }
+            for (var i in loadObj.css) {
+                link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = infoUrl + loadObj.css[i];
+
+                head.appendChild(link);
+            }
+            if (loadObj.js.length == 0) {
+                execute();
+            }
+            function callback() {
+                countJs++;
+                if (countJs === loadObj.js.length) {
+                    execute();
+                }
+            }
+            function execute() {
+                script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = infoUrl + 'js/DTBoardRpt.js';
+
+                head.appendChild(script);
+            }
+        }({
+            js: listJS,
+            css: listCSS
+        });
+    </script>
+</head>
+
+<body style="background: #000; overflow: hidden; height: 100%;">
+    <div id="DTBoardReport" class="container">
+        <div class="headers">
+            <div class="header">
+            </div>
+            <div class="subHeader">
+            </div>
+        </div>
+        <div class="main">
+            <div class="content" style="display: none;">
+                <div class="tabSet">
+                    <div class="tab dailyBoard" lang="[html]label.daily"></div>
+                    <div class="tab weeklyBoard" lang="[html]label.weekly"></div>
+                    <div class="tab periodBoard" lang="[html]label.period"></div>
+                </div>
+                <div class="title row">
+                    <div class="cell helf" lang="[html]label.rank" data-col=""></div>
+                    <div class="cell" lang="[html]label.date" data-col=""></div>
+                    <div class="cell helf textLeft" lang="[html]label.gameName" data-col=""></div>
+                    <div class="cell-wrap cell">
+                        <div class="cell helf textLeft" lang="[html]label.member" data-col=""></div>
+                        <div class="cell helf textRight" lang="[html]label.score" data-col=""></div>
+                        <div class="cell" lang="[html]label.countOfDayWinning" data-col=""></div>
+                    </div>
+                </div>
+                <div class="dataSet">
+                    <div class="sub grid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer"></div>
+        <div id="closeView" class="back">
+            <div class="backIcon"></div>
+        </div>
+    </div>
+</body>
+</html>
